@@ -5,6 +5,8 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if sprite_frames == null:
+		return
 	anim_sprite.sprite_frames_changed.connect(sprites_updated)
 	anim_sprite.sprite_frames = sprite_frames
 	pass # Replace with function body.
