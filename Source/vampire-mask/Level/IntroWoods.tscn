@@ -115,6 +115,10 @@ position = Vector2(200, 159)
 y_sort_enabled = false
 position = Vector2(127, 193)
 
+[node name="medis4" parent="Geometry" unique_id=466627120 instance=ExtResource("6_eyns1")]
+y_sort_enabled = false
+position = Vector2(35, 210)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1019312133]
 
 [node name="UIBase" parent="CanvasLayer" unique_id=567690652 instance=ExtResource("5_btx4e")]
