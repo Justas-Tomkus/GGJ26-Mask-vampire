@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Vampire-Mask"
-run/main_scene="uid://cgbf3ydlqrl6r"
+run/main_scene="uid://dew4qdxicv2kd"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
