@@ -3,6 +3,7 @@ extends Area2D
 @export var req_type :DataTypes.MaskTypes
 @export var target_path :NodePath
 @onready var target :InteractionTarget = get_node(target_path)
+@onready var anim :AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	connect("body_entered", on_body_entered)
@@ -23,3 +24,5 @@ func on_area_deactivate_request(inter_type :DataTypes.InterTypes, mask_type :Dat
 	print("deactivate request on area ", self)
 	if target.is_it_me(inter_type, mask_type) and monitoring:
 		monitoring = false
+		if anim.sprite_frames != null:
+			anim.visible = false

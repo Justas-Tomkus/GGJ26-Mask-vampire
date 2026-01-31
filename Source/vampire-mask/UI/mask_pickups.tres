@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://uqp8b4d42gor"]
+
+[ext_resource type="Texture2D" uid="uid://ve3vniext8mk" path="res://UI/kauke-zmones.png" id="1_ucf3j"]
+[ext_resource type="Texture2D" uid="uid://chlfckeq0vf7e" path="res://UI/kauke-saule.png" id="2_oeq3p"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"garlic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ucf3j")
+}],
+"loop": true,
+"name": &"human",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oeq3p")
+}],
+"loop": true,
+"name": &"sun",
+"speed": 5.0
+}]

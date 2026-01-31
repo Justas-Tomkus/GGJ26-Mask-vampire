@@ -14,8 +14,11 @@ extends CharacterBody2D
 
 
 var motion = Vector2.ZERO
+var active_mtype :DataTypes.MaskTypes
 
-#func _onready() -> void:
+func _ready() -> void:
+	Hub.mask_equip.connect(on_mask_changed)
+	
 	# Note(Justas): dynamic set doesn't seem to work, using manually expanded children
 	#var cam_follow : RemoteTransform2D = get_node(rtrans)
 	#cam_follow.remote_path = cam_node
@@ -52,3 +55,18 @@ func apply_animation() -> void:
 		# if !walk sfx -> play
 		if !anim_.is_playing():
 			anim_.play()
+
+func on_mask_changed(mtype) -> void:
+	active_mtype = mtype
+	var playing_initially = anim_.is_playing()
+	print("Setting mask anim: ", mtype)
+	if mtype == DataTypes.MaskTypes.None:
+		anim_.animation = "move_side"
+	elif mtype == DataTypes.MaskTypes.Sun:
+		anim_.animation = "move_side_sun"
+	elif mtype == DataTypes.MaskTypes.Human:
+		anim_.animation = "move_side_human"
+	elif mtype == DataTypes.MaskTypes.Garlic:
+		anim_.animation = "move_side_garlic"
+	else:
+		push_error("Undefined move animation for mask type: ", mtype)

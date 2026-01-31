@@ -4,16 +4,18 @@
 [ext_resource type="SpriteFrames" uid="uid://01s3vt5ve3ko" path="res://Characters/placeholder_player_anim.tres" id="2_oo13o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gijnf"]
-height = 37.16
+radius = 9.0
+height = 18.0
 
 [node name="Char" type="CharacterBody2D" unique_id=978138399]
+y_sort_enabled = true
 collision_layer = 8
 script = ExtResource("1_n6db0")
 rtrans = NodePath("RemoteTransform2D")
 anim = NodePath("AnimatedSprite2D")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1606419865]
-position = Vector2(0, 1)
+position = Vector2(0, 11)
 shape = SubResource("CapsuleShape2D_gijnf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1811973699]

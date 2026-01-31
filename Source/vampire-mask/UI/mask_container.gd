@@ -7,7 +7,10 @@ func _ready() -> void:
 	Hub.mask_pickup.connect(on_mask_picked_up)
 	Hub.checkpoint_reset.connect(on_reinit_masks)
 	on_reinit_masks()
+	# Setup initial "face/mask"
+	# TODO(Justas): move to more appropriate place when checkpoints are working
 	Hub.mask_pickup.emit(DataTypes.MaskTypes.None)
+	Hub.mask_equip.emit(DataTypes.MaskTypes.None)
 	
 func on_reinit_masks() -> void:
 	var children = layout_container.get_children()

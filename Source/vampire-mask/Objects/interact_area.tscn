@@ -1,17 +1,14 @@
 [gd_scene format=3 uid="uid://dfmdf03qkxhy4"]
 
-[ext_resource type="Script" path="res://Objects/interactible_area.gd" id="1_mx6s8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyns1"]
+[ext_resource type="Script" uid="uid://x0b80deotdrl" path="res://Objects/interactible_area.gd" id="1_mx6s8"]
 
 [node name="InteractArea" type="Area2D" unique_id=528617561]
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_mx6s8")
 target_path = NodePath("../ITargetAddMaskHuman")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=741066762]
-position = Vector2(128, 264)
-shape = SubResource("RectangleShape2D_eyns1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2091318831]
