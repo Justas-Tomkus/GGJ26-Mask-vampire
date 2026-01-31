@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var cam_node: NodePath
+@export var rtrans: NodePath
 @export var anim: NodePath
 @onready var anim_: AnimatedSprite2D = get_node(anim) as AnimatedSprite2D
 
@@ -12,6 +14,11 @@ extends CharacterBody2D
 
 
 var motion = Vector2.ZERO
+
+#func _onready() -> void:
+	# Note(Justas): dynamic set doesn't seem to work, using manually expanded children
+	#var cam_follow : RemoteTransform2D = get_node(rtrans)
+	#cam_follow.remote_path = cam_node
 
 func _physics_process(delta: float) -> void:
 	
