@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cgbf3ydlqrl6r"]
 
-[ext_resource type="Texture2D" uid="uid://cw5hsb1wxqlo5" path="res://icon.svg" id="1_xv1u1"]
+[ext_resource type="Script" path="res://UI/mask_container.gd" id="1_wa2eh"]
+[ext_resource type="PackedScene" uid="uid://l4g6g3ti7t40" path="res://UI/mask.tscn" id="2_wa2eh"]
+[ext_resource type="Script" path="res://UI/interaction_hint.gd" id="4_fdbdo"]
 
-[node name="Control" type="Control" unique_id=567690652]
+[node name="MainUI" type="Control" unique_id=567690652]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +12,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=871234030]
-position = Vector2(243, 150)
-texture = ExtResource("1_xv1u1")
+[node name="MaskContainer" type="PanelContainer" parent="." unique_id=1839859075 node_paths=PackedStringArray("layout_container")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.71400005
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+script = ExtResource("1_wa2eh")
+layout_container = NodePath("HBoxContainer")
+mask_ui_template = ExtResource("2_wa2eh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MaskContainer" unique_id=142210327]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="." unique_id=1135806161]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 288.0
+offset_right = 97.0
+offset_bottom = 328.0
+script = ExtResource("4_fdbdo")
+
+[node name="InteractionHint" type="Button" parent="Panel" unique_id=478364321]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 28.0
+offset_bottom = 35.0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "E"

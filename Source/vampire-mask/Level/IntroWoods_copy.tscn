@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dx7tuwbdv6ul1"]
+
+[ext_resource type="Texture2D" uid="uid://bfnok5jri5ok1" path="res://Level/backdrop_ph.png" id="1_ncke2"]
+[ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="2_p6560"]
+[ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="3_3vw1i"]
+[ext_resource type="SpriteFrames" uid="uid://cdah64xujhhpt" path="res://Characters/placeholder_player_anim.tres" id="4_owwfm"]
+[ext_resource type="PackedScene" uid="uid://cgbf3ydlqrl6r" path="res://UI/MainUI.tscn" id="5_iogk5"]
+[ext_resource type="Script" path="res://Objects/interactible_area.gd" id="6_ithmd"]
+[ext_resource type="Script" path="res://Level/interaction_target.gd" id="7_ff2nt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyns1"]
+
+[node name="IntroWoods" type="Node2D" unique_id=2066510595]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
+texture = ExtResource("1_ncke2")
+offset = Vector2(320, 180)
+
+[node name="Char" parent="." unique_id=978138399 instance=ExtResource("2_p6560")]
+position = Vector2(196, 163)
+cam_node = NodePath("../Camera2D")
+
+[node name="RemoteTransform2D" parent="Char" index="2" unique_id=263472957]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=966167918]
+position = Vector2(196, 163)
+metadata/_edit_lock_ = true
+
+[node name="BaseObject" parent="." unique_id=835961824 instance=ExtResource("3_3vw1i")]
+position = Vector2(341, 261)
+sprite_frames = ExtResource("4_owwfm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1100253810]
+
+[node name="UIBase" parent="CanvasLayer" unique_id=567690652 instance=ExtResource("5_iogk5")]
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=350301232]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("6_ithmd")
+target_path = NodePath("../ITargetAddMaskHuman")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1602911562]
+position = Vector2(128, 264)
+shape = SubResource("RectangleShape2D_eyns1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InteractArea" unique_id=695681522]
+
+[node name="ITargetAddMaskHuman" type="Node2D" parent="." unique_id=1816204974]
+script = ExtResource("7_ff2nt")
+itype = 1
+mask_type = 2
+
+[node name="ITargetAddMaskSun" type="Node2D" parent="." unique_id=992489385]
+script = ExtResource("7_ff2nt")
+itype = 1
+mask_type = 1
+
+[node name="ITargetAddMaskGarlic" type="Node2D" parent="." unique_id=1127344674]
+script = ExtResource("7_ff2nt")
+itype = 1
+mask_type = 3
+
+[editable path="Char"]

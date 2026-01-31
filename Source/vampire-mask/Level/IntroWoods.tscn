@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="1_rtpfe"]
 [ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="3_2rqdr"]
 [ext_resource type="SpriteFrames" uid="uid://cdah64xujhhpt" path="res://Characters/placeholder_player_anim.tres" id="4_4let5"]
+[ext_resource type="PackedScene" uid="uid://cgbf3ydlqrl6r" path="res://UI/MainUI.tscn" id="5_btx4e"]
+[ext_resource type="PackedScene" uid="uid://dfmdf03qkxhy4" path="res://Objects/interact_area.tscn" id="6_eyns1"]
+[ext_resource type="Script" path="res://Level/interaction_target.gd" id="7_eyns1"]
 
 [node name="IntroWoods" type="Node2D" unique_id=2066510595]
 
@@ -26,4 +29,26 @@ metadata/_edit_lock_ = true
 position = Vector2(341, 261)
 sprite_frames = ExtResource("4_4let5")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1100253810]
+
+[node name="UIBase" parent="CanvasLayer" unique_id=567690652 instance=ExtResource("5_btx4e")]
+
+[node name="InteractArea" parent="." unique_id=528617561 instance=ExtResource("6_eyns1")]
+
+[node name="ITargetAddMaskHuman" type="Node2D" parent="." unique_id=1816204974]
+script = ExtResource("7_eyns1")
+itype = 1
+mask_type = 2
+
+[node name="ITargetAddMaskSun" type="Node2D" parent="." unique_id=992489385]
+script = ExtResource("7_eyns1")
+itype = 1
+mask_type = 1
+
+[node name="ITargetAddMaskGarlic" type="Node2D" parent="." unique_id=1127344674]
+script = ExtResource("7_eyns1")
+itype = 1
+mask_type = 3
+
 [editable path="Char"]
+[editable path="InteractArea"]
