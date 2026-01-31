@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dew4qdxicv2kd"]
 
-[ext_resource type="Texture2D" uid="uid://bkueomufnsjok" path="res://Level/1-lygis.png" id="1_4let5"]
+[ext_resource type="Texture2D" uid="uid://c2rlwxpn22mxi" path="res://Level/1-lygis-v2.png" id="1_4qlaq"]
 [ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="1_rtpfe"]
 [ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="3_2rqdr"]
 [ext_resource type="SpriteFrames" uid="uid://01s3vt5ve3ko" path="res://Characters/placeholder_player_anim.tres" id="4_4let5"]
@@ -10,19 +10,19 @@
 [node name="IntroWoods" type="Node2D" unique_id=2066510595]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
-texture = ExtResource("1_4let5")
+texture = ExtResource("1_4qlaq")
 offset = Vector2(320, 180)
 metadata/_edit_lock_ = true
 
 [node name="Char" parent="." unique_id=978138399 instance=ExtResource("1_rtpfe")]
-position = Vector2(196, 163)
+position = Vector2(58, 205)
 cam_node = NodePath("../Camera2D")
 
 [node name="RemoteTransform2D" parent="Char" index="2" unique_id=263472957]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=966167918]
-position = Vector2(196, 163)
+position = Vector2(58, 205)
 metadata/_edit_lock_ = true
 
 [node name="BaseObject" parent="." unique_id=835961824 instance=ExtResource("3_2rqdr")]
@@ -30,15 +30,24 @@ position = Vector2(341, 261)
 sprite_frames = ExtResource("4_4let5")
 
 [node name="BaseObject2" parent="." unique_id=1945962370 instance=ExtResource("5_1tqlg")]
-position = Vector2(517, 123)
+position = Vector2(521, 163)
 
 [node name="medis1" parent="." unique_id=740936214 instance=ExtResource("6_eyns1")]
-position = Vector2(442, 174)
+position = Vector2(446, 161)
 
 [node name="medis2" parent="." unique_id=1762302893 instance=ExtResource("6_eyns1")]
-position = Vector2(297, 110)
+position = Vector2(584, 116)
 
 [node name="BaseObject3" parent="." unique_id=637874864 instance=ExtResource("5_1tqlg")]
-position = Vector2(380, 142)
+position = Vector2(385, 154)
+
+[node name="BaseObject4" parent="." unique_id=805468346 instance=ExtResource("5_1tqlg")]
+position = Vector2(280, 100)
+
+[node name="BaseObject5" parent="." unique_id=1410338956 instance=ExtResource("5_1tqlg")]
+position = Vector2(203, 124)
+
+[node name="medis3" parent="." unique_id=892445446 instance=ExtResource("6_eyns1")]
+position = Vector2(127, 134)
 
 [editable path="Char"]
