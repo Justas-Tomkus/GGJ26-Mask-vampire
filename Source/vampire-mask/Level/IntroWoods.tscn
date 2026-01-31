@@ -4,8 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="1_rtpfe"]
 [ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="3_2rqdr"]
 [ext_resource type="SpriteFrames" uid="uid://01s3vt5ve3ko" path="res://Characters/placeholder_player_anim.tres" id="4_4let5"]
-[ext_resource type="PackedScene" uid="uid://booh00l7cybak" path="res://Objects/medis-2.tscn" id="5_1tqlg"]
-[ext_resource type="PackedScene" uid="uid://c7abxc333s24x" path="res://Objects/medis_1.tscn" id="6_eyns1"]
+[ext_resource type="PackedScene" path="res://Objects/medis-2.tscn" id="5_1tqlg"]
+[ext_resource type="PackedScene" uid="uid://cgbf3ydlqrl6r" path="res://UI/MainUI.tscn" id="5_btx4e"]
+[ext_resource type="Script" path="res://Objects/interactible_area.gd" id="6_1tqlg"]
+[ext_resource type="PackedScene" path="res://Objects/medis_1.tscn" id="6_eyns1"]
+[ext_resource type="Script" path="res://Level/interaction_target.gd" id="7_eyns1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bu85l"]
 
 [node name="IntroWoods" type="Node2D" unique_id=2066510595]
 
@@ -25,29 +30,64 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(58, 205)
 metadata/_edit_lock_ = true
 
-[node name="BaseObject" parent="." unique_id=835961824 instance=ExtResource("3_2rqdr")]
+[node name="Geometry" type="Node2D" parent="." unique_id=2084627213]
+
+[node name="BaseObject" parent="Geometry" unique_id=835961824 instance=ExtResource("3_2rqdr")]
 position = Vector2(341, 261)
 sprite_frames = ExtResource("4_4let5")
 
-[node name="BaseObject2" parent="." unique_id=1945962370 instance=ExtResource("5_1tqlg")]
+[node name="BaseObject2" parent="Geometry" unique_id=1945962370 instance=ExtResource("5_1tqlg")]
 position = Vector2(521, 163)
 
-[node name="medis1" parent="." unique_id=740936214 instance=ExtResource("6_eyns1")]
+[node name="medis1" parent="Geometry" unique_id=740936214 instance=ExtResource("6_eyns1")]
 position = Vector2(446, 161)
 
-[node name="medis2" parent="." unique_id=1762302893 instance=ExtResource("6_eyns1")]
+[node name="medis2" parent="Geometry" unique_id=1762302893 instance=ExtResource("6_eyns1")]
 position = Vector2(584, 116)
 
-[node name="BaseObject3" parent="." unique_id=637874864 instance=ExtResource("5_1tqlg")]
+[node name="BaseObject3" parent="Geometry" unique_id=637874864 instance=ExtResource("5_1tqlg")]
 position = Vector2(385, 154)
 
-[node name="BaseObject4" parent="." unique_id=805468346 instance=ExtResource("5_1tqlg")]
+[node name="BaseObject4" parent="Geometry" unique_id=805468346 instance=ExtResource("5_1tqlg")]
 position = Vector2(280, 100)
 
-[node name="BaseObject5" parent="." unique_id=1410338956 instance=ExtResource("5_1tqlg")]
+[node name="BaseObject5" parent="Geometry" unique_id=1410338956 instance=ExtResource("5_1tqlg")]
 position = Vector2(203, 124)
 
-[node name="medis3" parent="." unique_id=892445446 instance=ExtResource("6_eyns1")]
+[node name="medis3" parent="Geometry" unique_id=892445446 instance=ExtResource("6_eyns1")]
 position = Vector2(127, 134)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1019312133]
+
+[node name="UIBase" parent="CanvasLayer" unique_id=567690652 instance=ExtResource("5_btx4e")]
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1341214763]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("6_1tqlg")
+target_path = NodePath("../ITargetResolvers/ITargetAddMaskHuman")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1953477617]
+position = Vector2(128, 264)
+shape = SubResource("RectangleShape2D_bu85l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InteractArea" unique_id=2116433187]
+
+[node name="ITargetResolvers" type="Node2D" parent="." unique_id=195266767]
+
+[node name="ITargetAddMaskHuman" type="Node2D" parent="ITargetResolvers" unique_id=811080598]
+script = ExtResource("7_eyns1")
+itype = 1
+mask_type = 2
+
+[node name="ITargetAddMaskSun" type="Node2D" parent="ITargetResolvers" unique_id=206495258]
+script = ExtResource("7_eyns1")
+itype = 1
+mask_type = 1
+
+[node name="ITargetAddMaskGarlic" type="Node2D" parent="ITargetResolvers" unique_id=488777324]
+script = ExtResource("7_eyns1")
+itype = 1
+mask_type = 3
 
 [editable path="Char"]
