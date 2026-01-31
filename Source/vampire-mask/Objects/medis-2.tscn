@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://booh00l7cybak"]
+
+[ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="1_3esxy"]
+[ext_resource type="Texture2D" uid="uid://csmp200awwi8n" path="res://Objects/medis-2.png" id="2_57nbv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gdb5"]
+radius = 6.41
+height = 62.95
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkv2q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_57nbv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BaseObject" unique_id=835961824 instance=ExtResource("1_3esxy")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=647921261]
+position = Vector2(-4, 21)
+shape = SubResource("CapsuleShape2D_4gdb5")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=910669732]
+sprite_frames = SubResource("SpriteFrames_xkv2q")
+animation = &"default"
+metadata/_edit_lock_ = true

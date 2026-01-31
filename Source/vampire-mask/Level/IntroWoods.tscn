@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://dew4qdxicv2kd"]
 
-[ext_resource type="Texture2D" uid="uid://bfnok5jri5ok1" path="res://Level/backdrop_ph.png" id="1_6jls5"]
+[ext_resource type="Texture2D" uid="uid://bkueomufnsjok" path="res://Level/1-lygis.png" id="1_4let5"]
 [ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="1_rtpfe"]
 [ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="3_2rqdr"]
-[ext_resource type="SpriteFrames" uid="uid://cdah64xujhhpt" path="res://Characters/placeholder_player_anim.tres" id="4_4let5"]
+[ext_resource type="SpriteFrames" uid="uid://01s3vt5ve3ko" path="res://Characters/placeholder_player_anim.tres" id="4_4let5"]
+[ext_resource type="PackedScene" uid="uid://booh00l7cybak" path="res://Objects/medis-2.tscn" id="5_1tqlg"]
+[ext_resource type="PackedScene" uid="uid://c7abxc333s24x" path="res://Objects/medis_1.tscn" id="6_eyns1"]
 
 [node name="IntroWoods" type="Node2D" unique_id=2066510595]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
-texture = ExtResource("1_6jls5")
+texture = ExtResource("1_4let5")
 offset = Vector2(320, 180)
+metadata/_edit_lock_ = true
 
 [node name="Char" parent="." unique_id=978138399 instance=ExtResource("1_rtpfe")]
 position = Vector2(196, 163)
@@ -25,5 +28,17 @@ metadata/_edit_lock_ = true
 [node name="BaseObject" parent="." unique_id=835961824 instance=ExtResource("3_2rqdr")]
 position = Vector2(341, 261)
 sprite_frames = ExtResource("4_4let5")
+
+[node name="BaseObject2" parent="." unique_id=1945962370 instance=ExtResource("5_1tqlg")]
+position = Vector2(517, 123)
+
+[node name="medis1" parent="." unique_id=740936214 instance=ExtResource("6_eyns1")]
+position = Vector2(442, 174)
+
+[node name="medis2" parent="." unique_id=1762302893 instance=ExtResource("6_eyns1")]
+position = Vector2(297, 110)
+
+[node name="BaseObject3" parent="." unique_id=637874864 instance=ExtResource("5_1tqlg")]
+position = Vector2(380, 142)
 
 [editable path="Char"]
