@@ -1,22 +1,24 @@
 [gd_scene format=3 uid="uid://mevd0ted8lcr"]
 
 [ext_resource type="Script" uid="uid://b5mwmtci5sn03" path="res://Characters/player.gd" id="1_n6db0"]
-[ext_resource type="SpriteFrames" uid="uid://cdah64xujhhpt" path="res://Characters/placeholder_player_anim.tres" id="2_oo13o"]
+[ext_resource type="SpriteFrames" uid="uid://01s3vt5ve3ko" path="res://Characters/placeholder_player_anim.tres" id="2_oo13o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gijnf"]
+height = 37.16
 
 [node name="Char" type="CharacterBody2D" unique_id=978138399]
 collision_layer = 8
 script = ExtResource("1_n6db0")
 rtrans = NodePath("RemoteTransform2D")
 anim = NodePath("AnimatedSprite2D")
-metadata/_edit_group_ = true
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1606419865]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_gijnf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1811973699]
 sprite_frames = ExtResource("2_oo13o")
 animation = &"move_side"
+metadata/_edit_lock_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=263472957]
