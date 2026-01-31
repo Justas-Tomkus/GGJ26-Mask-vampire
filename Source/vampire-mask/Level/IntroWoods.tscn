@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="3_2rqdr"]
 [ext_resource type="SpriteFrames" uid="uid://01s3vt5ve3ko" path="res://Characters/placeholder_player_anim.tres" id="4_4let5"]
 [ext_resource type="PackedScene" uid="uid://d0dx7rgnav17a" path="res://Objects/medis-2.tscn" id="5_1tqlg"]
+[ext_resource type="Script" uid="uid://cgwgut0icsm7o" path="res://Level/camera_limiter.gd" id="5_1y7e4"]
 [ext_resource type="PackedScene" uid="uid://cgbf3ydlqrl6r" path="res://UI/MainUI.tscn" id="5_btx4e"]
 [ext_resource type="PackedScene" uid="uid://cqr572iv2fcij" path="res://Objects/medis_1.tscn" id="6_eyns1"]
 [ext_resource type="Script" uid="uid://bso6mloajbn5r" path="res://Level/interaction_target.gd" id="7_eyns1"]
@@ -13,6 +14,17 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l1t5"]
 size = Vector2(639, 81)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1y7e4"]
+b = Vector2(0, 360)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0wwph"]
+a = Vector2(-1, 360)
+b = Vector2(641, 360)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u2fth"]
+a = Vector2(640, 3)
+b = Vector2(640, 360)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1y7e4"]
 size = Vector2(28, 11)
@@ -23,13 +35,23 @@ y_sort_enabled = true
 [node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
 texture = ExtResource("1_4qlaq")
 offset = Vector2(320, 180)
-metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1294591445]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=429837556]
 position = Vector2(319.5, 43.5)
 shape = SubResource("RectangleShape2D_8l1t5")
+
+[node name="ExtraLimits" type="StaticBody2D" parent="." unique_id=928895939]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraLimits" unique_id=902093307]
+shape = SubResource("SegmentShape2D_1y7e4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExtraLimits" unique_id=158876657]
+shape = SubResource("SegmentShape2D_0wwph")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ExtraLimits" unique_id=1465297420]
+shape = SubResource("SegmentShape2D_u2fth")
 
 [node name="Backdrop" type="Node2D" parent="." unique_id=1874691024]
 
@@ -52,8 +74,10 @@ cam_node = NodePath("../Camera2D")
 [node name="RemoteTransform2D" parent="Char" index="2" unique_id=263472957]
 remote_path = NodePath("../../Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=966167918]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=966167918 node_paths=PackedStringArray("backgrounds")]
 position = Vector2(58, 205)
+script = ExtResource("5_1y7e4")
+backgrounds = [NodePath("../Background")]
 metadata/_edit_lock_ = true
 
 [node name="Geometry" type="Node2D" parent="." unique_id=2084627213]
