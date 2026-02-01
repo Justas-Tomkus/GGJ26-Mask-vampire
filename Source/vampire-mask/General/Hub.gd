@@ -16,6 +16,7 @@ signal in_shadow
 signal out_shadow
 
 signal take_damage
+signal take_damage_reduced
 signal mark_dead
 signal try_retry
 

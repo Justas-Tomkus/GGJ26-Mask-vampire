@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://d0dx7rgnav17a" path="res://Objects/medis-2.tscn" id="8_t5lbf"]
 [ext_resource type="PackedScene" uid="uid://cqr572iv2fcij" path="res://Objects/medis_1.tscn" id="9_lx7y2"]
 [ext_resource type="PackedScene" uid="uid://cgbf3ydlqrl6r" path="res://UI/MainUI.tscn" id="10_e0c4m"]
+[ext_resource type="Texture2D" uid="uid://d17bhg0veel1l" path="res://UI/issigandes-gyventojas.png" id="10_ix0k4"]
 [ext_resource type="Script" uid="uid://bso6mloajbn5r" path="res://Level/interaction_target.gd" id="11_i8j25"]
+[ext_resource type="Texture2D" uid="uid://miu7gpbpaxjt" path="res://UI/gyventojas.png" id="11_sf7mm"]
+[ext_resource type="Script" uid="uid://8quwr7q2lsl8" path="res://Level/sun_damage_display.gd" id="11_u47tj"]
 [ext_resource type="Script" uid="uid://cwlyc21aq3va0" path="res://Objects/shadow.gd" id="12_k2xm0"]
 [ext_resource type="Script" uid="uid://byu5dfmb1atkh" path="res://Level/unlock_p_2.gd" id="13_21j5i"]
 
@@ -53,6 +56,12 @@ size = Vector2(28, 11)
 size = Vector2(18, 11.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_21j5i"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_5jbay"]
+
+[sub_resource type="Theme" id="Theme_ix0k4"]
+HSlider/icons/grabber = null
+HSlider/icons/grabber_disabled = SubResource("ImageTexture_5jbay")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21j5i"]
 size = Vector2(82.999985, 212)
@@ -187,15 +196,12 @@ metadata/_edit_lock_ = true
 y_sort_enabled = true
 
 [node name="House" parent="Geometry" unique_id=835961824 instance=ExtResource("7_5jbay")]
-visible = false
 position = Vector2(948, 237)
 
 [node name="House2" parent="Geometry" unique_id=949123812 instance=ExtResource("7_5jbay")]
-visible = false
 position = Vector2(1214, 93)
 
 [node name="House3" parent="Geometry" unique_id=395570799 instance=ExtResource("7_5jbay")]
-visible = false
 position = Vector2(1530, 242)
 
 [node name="BaseObject2" parent="Geometry" unique_id=1945962370 instance=ExtResource("8_t5lbf")]
@@ -272,10 +278,55 @@ position = Vector2(1380, 246)
 y_sort_enabled = false
 position = Vector2(1625, 85)
 
+[node name="IssigandesGyventojas" type="Sprite2D" parent="Geometry" unique_id=771176350]
+position = Vector2(862, 233)
+texture = ExtResource("10_ix0k4")
+
+[node name="IssigandesGyventojas2" type="Sprite2D" parent="Geometry" unique_id=2096069362]
+position = Vector2(1298, 90)
+texture = ExtResource("10_ix0k4")
+
+[node name="IssigandesGyventojas3" type="Sprite2D" parent="Geometry" unique_id=1044533387]
+position = Vector2(1452, 239)
+texture = ExtResource("10_ix0k4")
+
+[node name="Gyventojas" type="Sprite2D" parent="Geometry" unique_id=1461816387]
+position = Vector2(1138, 252)
+texture = ExtResource("11_sf7mm")
+
+[node name="Gyventojas2" type="Sprite2D" parent="Geometry" unique_id=1192568651]
+position = Vector2(1364, 290)
+texture = ExtResource("11_sf7mm")
+
+[node name="Gyventojas3" type="Sprite2D" parent="Geometry" unique_id=1951384117]
+position = Vector2(1164, 231)
+texture = ExtResource("11_sf7mm")
+
+[node name="Gyventojas4" type="Sprite2D" parent="Geometry" unique_id=846342398]
+position = Vector2(1166, 279)
+texture = ExtResource("11_sf7mm")
+
+[node name="Gyventojas5" type="Sprite2D" parent="Geometry" unique_id=727218433]
+position = Vector2(1576, 237)
+texture = ExtResource("11_sf7mm")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1019312133]
 
 [node name="UIBase" parent="CanvasLayer" unique_id=567690652 instance=ExtResource("10_e0c4m")]
 metadata/_edit_lock_ = true
+
+[node name="SunDamage" type="HSlider" parent="CanvasLayer" unique_id=1661140182]
+custom_minimum_size = Vector2(150, 0)
+offset_left = 27.0
+offset_top = 64.0
+offset_right = 77.0
+offset_bottom = 80.0
+theme = SubResource("Theme_ix0k4")
+max_value = 1.0
+step = 0.001
+editable = false
+scrollable = false
+script = ExtResource("11_u47tj")
 
 [node name="ITargetResolvers" type="Node2D" parent="." unique_id=195266767]
 metadata/_edit_group_ = true

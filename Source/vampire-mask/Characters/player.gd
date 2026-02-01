@@ -26,7 +26,7 @@ func _ready() -> void:
 	#var cam_follow : RemoteTransform2D = get_node(rtrans)
 	#cam_follow.remote_path = cam_node
 
-func on_player_dead() -> void:
+func on_player_dead(dtype :DataTypes.MaskTypes) -> void:
 	is_alive = false
 
 func _physics_process(delta: float) -> void:

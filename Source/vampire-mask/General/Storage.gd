@@ -67,7 +67,7 @@ func on_shadow_exited(body :Node2D) -> void:
 	progress[keys_shadows].erase(body)
 
 var track_shadows = true
-func on_marked_dead() -> void:
+func on_marked_dead(dtype :DataTypes.MaskTypes) -> void:
 	track_shadows = false
 	print("no tracking")
 func on_try_retry() -> void:
@@ -85,5 +85,8 @@ func on_try_retry() -> void:
 
 func _process(delta: float) -> void:
 	if track_shadows and progress[keys_shadows].is_empty():
-		if get_active_mask() != DataTypes.MaskTypes.Sun:
+		var active_mask = get_active_mask()
+		if active_mask != DataTypes.MaskTypes.Sun:
 			Hub.take_damage.emit(DataTypes.MaskTypes.Sun)
+		else:
+			Hub.take_damage_reduced.emit(DataTypes.MaskTypes.Sun)
