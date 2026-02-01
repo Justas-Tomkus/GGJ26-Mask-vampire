@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 Hub="*uid://bpdp8ps0kpmmy"
 Storage="*uid://cfq23jy6ofwc0"
-DataTypes="*uid://du0fdpisvk04x"
+DataTypes="*uid://b058ixa4nyrmn"
 
 [display]
 

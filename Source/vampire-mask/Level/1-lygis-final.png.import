@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkueomufnsjok"
-path="res://.godot/imported/1-lygis.png-5c228a3eeb48350057f2775e04ebbf24.ctex"
+uid="uid://bf3njm23od0ml"
+path="res://.godot/imported/1-lygis-final.png-07f5cd374a2c502d9cdcada32613cbfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/1-lygis.png"
-dest_files=["res://.godot/imported/1-lygis.png-5c228a3eeb48350057f2775e04ebbf24.ctex"]
+source_file="res://Level/1-lygis-final.png"
+dest_files=["res://.godot/imported/1-lygis-final.png-07f5cd374a2c502d9cdcada32613cbfc.ctex"]
 
 [params]
 
