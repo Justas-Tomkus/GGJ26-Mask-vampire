@@ -31,6 +31,8 @@ size = Vector2(28, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lufd2"]
 size = Vector2(18, 11.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ga8f"]
+
 [node name="IntroWoods" type="Node2D" unique_id=2066510595]
 y_sort_enabled = true
 
@@ -86,12 +88,12 @@ position = Vector2(195, 250)
 target_path = NodePath("../../ITargetResolvers/ITargetAddMaskGarlic")
 
 [node name="CollisionShape2D" parent="Backdrop/InteractiveGetGarlicMask" index="0" unique_id=741066762]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_1y7e4")
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_2ga8f")
 
 [node name="AnimatedSprite2D" parent="Backdrop/InteractiveGetGarlicMask" index="1" unique_id=2091318831]
 sprite_frames = ExtResource("3_qaovx")
-animation = &"sun"
+animation = &"garlic"
 
 [node name="Char" parent="." unique_id=978138399 instance=ExtResource("4_dgr7f")]
 position = Vector2(58, 205)
@@ -166,7 +168,7 @@ itype = 1
 mask_type = 3
 
 [node name="House" parent="ITargetResolvers" unique_id=835961824 instance=ExtResource("10_2ga8f")]
-position = Vector2(311, 295)
+position = Vector2(328, 282)
 
 [editable path="Backdrop/InteractiveGetSunMask"]
 [editable path="Backdrop/InteractiveGetHumanMask"]

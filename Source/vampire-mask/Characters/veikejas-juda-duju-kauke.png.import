@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqamq8s14f3o7"
-path="res://.godot/imported/veikejas-juda-duju-kauke.png-d6be4fcf6b11af624c2ea40c812b67b8.ctex"
+path="res://.godot/imported/veikejas-juda-duju-kauke.png-a282a069860275ae0ef5be7a4fbd259b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/veikejas-juda-duju-kauke.png"
-dest_files=["res://.godot/imported/veikejas-juda-duju-kauke.png-d6be4fcf6b11af624c2ea40c812b67b8.ctex"]
+source_file="res://Characters/veikejas-juda-duju-kauke.png"
+dest_files=["res://.godot/imported/veikejas-juda-duju-kauke.png-a282a069860275ae0ef5be7a4fbd259b.ctex"]
 
 [params]
 

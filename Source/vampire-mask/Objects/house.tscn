@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://b7xkqdlgk8bdc"]
 
 [ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="1_7txk5"]
-[ext_resource type="Texture2D" uid="uid://cw5hsb1wxqlo5" path="res://icon.svg" id="2_opt6f"]
+[ext_resource type="Texture2D" uid="uid://dfeulcad3hldn" path="res://Objects/namelis-sienos.png" id="2_opt6f"]
 [ext_resource type="PackedScene" uid="uid://dfmdf03qkxhy4" path="res://Objects/interact_area.tscn" id="3_4wadm"]
 [ext_resource type="Script" uid="uid://bso6mloajbn5r" path="res://Level/interaction_target.gd" id="4_vpr5s"]
 [ext_resource type="Texture2D" uid="uid://dbhydt386m3c0" path="res://UI/mask_ph1.png" id="5_opt6f"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7txk5"]
-a = Vector2(-64, -63)
-b = Vector2(-64, 62)
+a = Vector2(-110, -72)
+b = Vector2(-109, 72)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_opt6f"]
-a = Vector2(64, 64)
-b = Vector2(-64, 63)
+a = Vector2(108, 72)
+b = Vector2(-110, 72)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4wadm"]
-a = Vector2(64, -65)
-b = Vector2(64, 64)
+a = Vector2(108, -71)
+b = Vector2(108, 72)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vpr5s"]
-a = Vector2(64, -64)
-b = Vector2(-64, -63)
+a = Vector2(109, -71)
+b = Vector2(-111, -71)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jlhx0"]
 animations = [{
@@ -34,7 +34,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fpva"]
-size = Vector2(20, 6)
+size = Vector2(8, 23)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4wadm"]
 animations = [{
@@ -66,32 +66,32 @@ sprite_frames = SubResource("SpriteFrames_jlhx0")
 animation = &"default"
 
 [node name="InteractArea" parent="." index="5" unique_id=528617561 instance=ExtResource("3_4wadm")]
-position = Vector2(-36, -71)
+position = Vector2(-120, 48)
 req_type = 2
 target_path = NodePath("ITargetExitPoint")
 
 [node name="CollisionShape2D" parent="InteractArea" index="0" unique_id=741066762]
-position = Vector2(0, 4)
+position = Vector2(5, 3)
 shape = SubResource("RectangleShape2D_0fpva")
 
 [node name="ITargetExitPoint" type="Node2D" parent="InteractArea" index="2" unique_id=1299157041]
-position = Vector2(0, 31)
+position = Vector2(41, 3)
 script = ExtResource("4_vpr5s")
 itype = 2
 enter_in = true
 hide_on_enter = NodePath("../../AnimatedSprite2D")
 
 [node name="InteractArea2" parent="." index="6" unique_id=954995032 instance=ExtResource("3_4wadm")]
-position = Vector2(-36, -59)
+position = Vector2(-99, 47)
 req_type = 2
 target_path = NodePath("ITargetExitPoint")
 
 [node name="CollisionShape2D" parent="InteractArea2" index="0" unique_id=741066762]
-position = Vector2(0, 4)
+position = Vector2(-5, 4)
 shape = SubResource("RectangleShape2D_0fpva")
 
 [node name="ITargetExitPoint" type="Node2D" parent="InteractArea2" index="2" unique_id=1247588023]
-position = Vector2(0, -30)
+position = Vector2(-36, 4)
 script = ExtResource("4_vpr5s")
 itype = 2
 hide_on_enter = NodePath("../../AnimatedSprite2D")
