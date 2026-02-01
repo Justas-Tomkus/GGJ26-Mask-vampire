@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dew4qdxicv2kd"]
 
-[ext_resource type="Texture2D" uid="uid://c2rlwxpn22mxi" path="res://Level/1-lygis-v2.png" id="1_4qlaq"]
+[ext_resource type="Texture2D" uid="uid://bf3njm23od0ml" path="res://Level/1-lygis-final.png" id="1_1y7e4"]
 [ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="1_rtpfe"]
 [ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="3_2rqdr"]
 [ext_resource type="SpriteFrames" uid="uid://01s3vt5ve3ko" path="res://Characters/placeholder_player_anim.tres" id="4_4let5"]
 [ext_resource type="PackedScene" uid="uid://d0dx7rgnav17a" path="res://Objects/medis-2.tscn" id="5_1tqlg"]
-[ext_resource type="Script" uid="uid://cgwgut0icsm7o" path="res://Level/camera_limiter.gd" id="5_1y7e4"]
+[ext_resource type="Script" path="res://Level/camera_limiter.gd" id="5_1y7e4"]
 [ext_resource type="PackedScene" uid="uid://cgbf3ydlqrl6r" path="res://UI/MainUI.tscn" id="5_btx4e"]
 [ext_resource type="PackedScene" uid="uid://cqr572iv2fcij" path="res://Objects/medis_1.tscn" id="6_eyns1"]
 [ext_resource type="Script" uid="uid://bso6mloajbn5r" path="res://Level/interaction_target.gd" id="7_eyns1"]
@@ -33,7 +33,7 @@ size = Vector2(28, 11)
 y_sort_enabled = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
-texture = ExtResource("1_4qlaq")
+texture = ExtResource("1_1y7e4")
 offset = Vector2(320, 180)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1294591445]
