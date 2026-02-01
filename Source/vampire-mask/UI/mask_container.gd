@@ -9,7 +9,6 @@ func _ready() -> void:
 	on_reinit_masks()
 	# Setup initial "face/mask"
 	# TODO(Justas): move to more appropriate place when checkpoints are working
-	Hub.mask_pickup.emit(DataTypes.MaskTypes.None)
 	Hub.mask_equip.emit(DataTypes.MaskTypes.None, DataTypes.MaskTypes.Undefined)
 	
 func on_reinit_masks() -> void:

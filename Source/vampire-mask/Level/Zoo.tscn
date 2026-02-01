@@ -37,6 +37,7 @@ size = Vector2(18, 11.5)
 y_sort_enabled = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
+z_index = -1
 texture = ExtResource("1_dil1x")
 offset = Vector2(320, 180)
 

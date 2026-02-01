@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://b4rex14wg4j3n"]
+
+[ext_resource type="Texture2D" uid="uid://bnwwxnwsftve7" path="res://Level/1-lygis-v3.png" id="1_21j5i"]
+[ext_resource type="PackedScene" uid="uid://dfmdf03qkxhy4" path="res://Objects/interact_area.tscn" id="2_k2xm0"]
+[ext_resource type="Texture2D" uid="uid://b3dy1qcfpf1le" path="res://Level/2-lygis.png" id="2_u47tj"]
+[ext_resource type="SpriteFrames" uid="uid://uqp8b4d42gor" path="res://UI/mask_pickups.tres" id="3_21j5i"]
+[ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="4_u47tj"]
+[ext_resource type="Script" uid="uid://cgwgut0icsm7o" path="res://Level/camera_limiter.gd" id="5_5jbay"]
+[ext_resource type="PackedScene" uid="uid://b7xkqdlgk8bdc" path="res://Objects/house.tscn" id="7_5jbay"]
+[ext_resource type="PackedScene" uid="uid://d0dx7rgnav17a" path="res://Objects/medis-2.tscn" id="8_t5lbf"]
+[ext_resource type="PackedScene" uid="uid://cqr572iv2fcij" path="res://Objects/medis_1.tscn" id="9_lx7y2"]
+[ext_resource type="PackedScene" uid="uid://cgbf3ydlqrl6r" path="res://UI/MainUI.tscn" id="10_e0c4m"]
+[ext_resource type="Script" uid="uid://bso6mloajbn5r" path="res://Level/interaction_target.gd" id="11_i8j25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l1t5"]
+size = Vector2(639, 81)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ix0k4"]
+a = Vector2(-538.5, -42.5)
+b = Vector2(539.5, -44.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1y7e4"]
+b = Vector2(0, 360)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0wwph"]
+a = Vector2(-1, 360)
+b = Vector2(1722, 362)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u2fth"]
+a = Vector2(1722, 0)
+b = Vector2(1722, 362)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y7e4"]
+size = Vector2(28, 11)
+
+[node name="IntroWoods" type="Node2D" unique_id=2066510595]
+y_sort_enabled = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
+z_index = -1
+texture = ExtResource("1_21j5i")
+offset = Vector2(320, 180)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1294591445]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=429837556]
+position = Vector2(319.5, 43.5)
+shape = SubResource("RectangleShape2D_8l1t5")
+
+[node name="Background2" type="Sprite2D" parent="." unique_id=313974032]
+z_index = -1
+position = Vector2(860, 0)
+texture = ExtResource("2_u47tj")
+offset = Vector2(320, 180)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background2" unique_id=1755487223]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background2/StaticBody2D" unique_id=595142497]
+position = Vector2(319.5, 43.5)
+shape = SubResource("SegmentShape2D_ix0k4")
+
+[node name="ExtraLimits" type="StaticBody2D" parent="." unique_id=928895939]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraLimits" unique_id=902093307]
+shape = SubResource("SegmentShape2D_1y7e4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExtraLimits" unique_id=158876657]
+shape = SubResource("SegmentShape2D_0wwph")
+
+[node name="LevelBlocker" type="CollisionShape2D" parent="ExtraLimits" unique_id=1465297420]
+shape = SubResource("SegmentShape2D_u2fth")
+
+[node name="LevelBlocker2" type="CollisionShape2D" parent="ExtraLimits" unique_id=1363472901]
+shape = SubResource("SegmentShape2D_u2fth")
+
+[node name="Backdrop" type="Node2D" parent="." unique_id=1874691024]
+
+[node name="InteractiveGetSunMask" parent="Backdrop" unique_id=528617561 instance=ExtResource("2_k2xm0")]
+position = Vector2(154, 190)
+target_path = NodePath("../../ITargetResolvers/ITargetAddMaskSun")
+
+[node name="CollisionShape2D" parent="Backdrop/InteractiveGetSunMask" index="0" unique_id=741066762]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_1y7e4")
+
+[node name="AnimatedSprite2D" parent="Backdrop/InteractiveGetSunMask" index="1" unique_id=2091318831]
+sprite_frames = ExtResource("3_21j5i")
+animation = &"sun"
+
+[node name="Char" parent="." unique_id=978138399 instance=ExtResource("4_u47tj")]
+position = Vector2(58, 205)
+cam_node = NodePath("../Camera2D")
+
+[node name="RemoteTransform2D" parent="Char" index="2" unique_id=263472957]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=966167918 node_paths=PackedStringArray("backgrounds")]
+position = Vector2(58, 205)
+script = ExtResource("5_5jbay")
+backgrounds = [NodePath("../Background")]
+metadata/_edit_lock_ = true
+
+[node name="Geometry" type="Node2D" parent="." unique_id=2084627213]
+y_sort_enabled = true
+
+[node name="House" parent="Geometry" unique_id=835961824 instance=ExtResource("7_5jbay")]
+visible = false
+position = Vector2(948, 237)
+
+[node name="House2" parent="Geometry" unique_id=949123812 instance=ExtResource("7_5jbay")]
+visible = false
+position = Vector2(1214, 93)
+
+[node name="House3" parent="Geometry" unique_id=395570799 instance=ExtResource("7_5jbay")]
+visible = false
+position = Vector2(1530, 242)
+
+[node name="BaseObject2" parent="Geometry" unique_id=1945962370 instance=ExtResource("8_t5lbf")]
+y_sort_enabled = false
+position = Vector2(518, 199)
+
+[node name="medis1" parent="Geometry" unique_id=740936214 instance=ExtResource("9_lx7y2")]
+y_sort_enabled = false
+position = Vector2(447, 220)
+
+[node name="medis2" parent="Geometry" unique_id=1762302893 instance=ExtResource("9_lx7y2")]
+y_sort_enabled = false
+position = Vector2(584, 175)
+
+[node name="BaseObject3" parent="Geometry" unique_id=637874864 instance=ExtResource("8_t5lbf")]
+y_sort_enabled = false
+position = Vector2(382, 189)
+
+[node name="BaseObject4" parent="Geometry" unique_id=805468346 instance=ExtResource("8_t5lbf")]
+y_sort_enabled = false
+position = Vector2(277, 135)
+
+[node name="BaseObject5" parent="Geometry" unique_id=1410338956 instance=ExtResource("8_t5lbf")]
+y_sort_enabled = false
+position = Vector2(200, 159)
+
+[node name="medis3" parent="Geometry" unique_id=892445446 instance=ExtResource("9_lx7y2")]
+y_sort_enabled = false
+position = Vector2(127, 193)
+
+[node name="medis4" parent="Geometry" unique_id=466627120 instance=ExtResource("9_lx7y2")]
+y_sort_enabled = false
+position = Vector2(35, 210)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1019312133]
+
+[node name="UIBase" parent="CanvasLayer" unique_id=567690652 instance=ExtResource("10_e0c4m")]
+metadata/_edit_lock_ = true
+
+[node name="ITargetResolvers" type="Node2D" parent="." unique_id=195266767]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ITargetAddMaskHuman" type="Node2D" parent="ITargetResolvers" unique_id=811080598]
+script = ExtResource("11_i8j25")
+itype = 1
+mask_type = 2
+
+[node name="ITargetAddMaskSun" type="Node2D" parent="ITargetResolvers" unique_id=206495258]
+script = ExtResource("11_i8j25")
+itype = 1
+mask_type = 1
+
+[node name="ITargetAddMaskGarlic" type="Node2D" parent="ITargetResolvers" unique_id=488777324]
+script = ExtResource("11_i8j25")
+itype = 1
+mask_type = 3
+
+[editable path="Backdrop/InteractiveGetSunMask"]
+[editable path="Char"]
