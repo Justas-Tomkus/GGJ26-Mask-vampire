@@ -18,6 +18,7 @@ var active_mtype :DataTypes.MaskTypes
 
 func _ready() -> void:
 	Hub.mask_equip.connect(on_mask_changed)
+	Hub.enter_request.connect(on_enter_requested)
 	
 	# Note(Justas): dynamic set doesn't seem to work, using manually expanded children
 	#var cam_follow : RemoteTransform2D = get_node(rtrans)
@@ -56,7 +57,7 @@ func apply_animation() -> void:
 		if !anim_.is_playing():
 			anim_.play()
 
-func on_mask_changed(mtype) -> void:
+func on_mask_changed(mtype :DataTypes.MaskTypes, last_t :DataTypes.MaskTypes) -> void:
 	active_mtype = mtype
 	var playing_initially = anim_.is_playing()
 	print("Setting mask anim: ", mtype)
@@ -70,3 +71,6 @@ func on_mask_changed(mtype) -> void:
 		anim_.animation = "move_side_garlic"
 	else:
 		push_error("Undefined move animation for mask type: ", mtype)
+		
+func on_enter_requested(gpos :Vector2) -> void:
+	global_position = gpos

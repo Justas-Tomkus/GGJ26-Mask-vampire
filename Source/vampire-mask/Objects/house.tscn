@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://b7xkqdlgk8bdc"]
+
+[ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="1_7txk5"]
+[ext_resource type="Texture2D" uid="uid://cw5hsb1wxqlo5" path="res://icon.svg" id="2_opt6f"]
+[ext_resource type="PackedScene" uid="uid://dfmdf03qkxhy4" path="res://Objects/interact_area.tscn" id="3_4wadm"]
+[ext_resource type="Script" uid="uid://bso6mloajbn5r" path="res://Level/interaction_target.gd" id="4_vpr5s"]
+[ext_resource type="Texture2D" uid="uid://dbhydt386m3c0" path="res://UI/mask_ph1.png" id="5_opt6f"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7txk5"]
+a = Vector2(-64, -63)
+b = Vector2(-64, 62)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_opt6f"]
+a = Vector2(64, 64)
+b = Vector2(-64, 63)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4wadm"]
+a = Vector2(64, -65)
+b = Vector2(64, 64)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vpr5s"]
+a = Vector2(64, -64)
+b = Vector2(-64, -63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlhx0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_opt6f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fpva"]
+size = Vector2(20, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wadm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_opt6f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="House" unique_id=835961824 instance=ExtResource("1_7txk5")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=647921261]
+shape = SubResource("SegmentShape2D_7txk5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="1" unique_id=1763736925]
+shape = SubResource("SegmentShape2D_opt6f")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." index="2" unique_id=80360543]
+shape = SubResource("SegmentShape2D_4wadm")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." index="3" unique_id=2147332021]
+shape = SubResource("SegmentShape2D_vpr5s")
+
+[node name="AnimatedSprite2D" parent="." index="4" unique_id=910669732]
+sprite_frames = SubResource("SpriteFrames_jlhx0")
+animation = &"default"
+
+[node name="InteractArea" parent="." index="5" unique_id=528617561 instance=ExtResource("3_4wadm")]
+position = Vector2(-36, -71)
+req_type = 2
+target_path = NodePath("ITargetExitPoint")
+
+[node name="CollisionShape2D" parent="InteractArea" index="0" unique_id=741066762]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_0fpva")
+
+[node name="ITargetExitPoint" type="Node2D" parent="InteractArea" index="2" unique_id=1299157041]
+position = Vector2(0, 31)
+script = ExtResource("4_vpr5s")
+itype = 2
+enter_in = true
+hide_on_enter = NodePath("../../AnimatedSprite2D")
+
+[node name="InteractArea2" parent="." index="6" unique_id=954995032 instance=ExtResource("3_4wadm")]
+position = Vector2(-36, -59)
+req_type = 2
+target_path = NodePath("ITargetExitPoint")
+
+[node name="CollisionShape2D" parent="InteractArea2" index="0" unique_id=741066762]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_0fpva")
+
+[node name="ITargetExitPoint" type="Node2D" parent="InteractArea2" index="2" unique_id=1247588023]
+position = Vector2(0, -30)
+script = ExtResource("4_vpr5s")
+itype = 2
+hide_on_enter = NodePath("../../AnimatedSprite2D")
+
+[node name="RoofAnim" type="AnimatedSprite2D" parent="." index="7" unique_id=1692039298]
+visible = false
+sprite_frames = SubResource("SpriteFrames_4wadm")
+
+[editable path="InteractArea"]
+[editable path="InteractArea2"]

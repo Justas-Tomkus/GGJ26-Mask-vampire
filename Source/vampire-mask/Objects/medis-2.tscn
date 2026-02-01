@@ -18,7 +18,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BaseObject" unique_id=835961824 instance=ExtResource("1_3esxy")]
+[node name="medis2" unique_id=835961824 instance=ExtResource("1_3esxy")]
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=647921261]
 position = Vector2(0, 5)

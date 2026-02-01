@@ -3,6 +3,7 @@ extends Node
 
 signal mask_pickup
 signal mask_equip
+signal enter_request
 
 signal checkpoint_hit
 signal checkpoint_reset

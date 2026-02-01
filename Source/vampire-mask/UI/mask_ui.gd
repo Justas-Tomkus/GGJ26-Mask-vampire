@@ -26,4 +26,4 @@ func on_clicked() -> void:
 		push_error("no data to click on mask")
 		return
 	print("clicked butt: ", mask_type)
-	Hub.mask_equip.emit(mask_type)
+	Hub.mask_equip.emit(mask_type, Storage.get_active_mask())
