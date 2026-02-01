@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dew4qdxicv2kd"]
 
-[ext_resource type="Texture2D" uid="uid://bnwwxnwsftve7" path="res://Level/1-lygis-v3.png" id="1_1y7e4"]
+[ext_resource type="Texture2D" uid="uid://bf3njm23od0ml" path="res://Level/1-lygis-final.png" id="1_bu85l"]
 [ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="1_rtpfe"]
 [ext_resource type="PackedScene" uid="uid://d0dx7rgnav17a" path="res://Objects/medis-2.tscn" id="5_1tqlg"]
 [ext_resource type="Script" uid="uid://cgwgut0icsm7o" path="res://Level/camera_limiter.gd" id="5_1y7e4"]
@@ -32,7 +32,7 @@ y_sort_enabled = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
 z_index = -2
-texture = ExtResource("1_1y7e4")
+texture = ExtResource("1_bu85l")
 offset = Vector2(320, 180)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1294591445]

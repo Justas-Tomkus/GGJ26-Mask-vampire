@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b4rex14wg4j3n"]
 
-[ext_resource type="Texture2D" uid="uid://bnwwxnwsftve7" path="res://Level/1-lygis-v3.png" id="1_21j5i"]
+[ext_resource type="Texture2D" uid="uid://bf3njm23od0ml" path="res://Level/1-lygis-final.png" id="1_rflcs"]
+[ext_resource type="Texture2D" uid="uid://cjv53tchwyyjj" path="res://Level/2-lygis-v2.png" id="2_21j5i"]
 [ext_resource type="PackedScene" uid="uid://dfmdf03qkxhy4" path="res://Objects/interact_area.tscn" id="2_k2xm0"]
-[ext_resource type="Texture2D" uid="uid://b3dy1qcfpf1le" path="res://Level/2-lygis.png" id="2_u47tj"]
 [ext_resource type="SpriteFrames" uid="uid://uqp8b4d42gor" path="res://UI/mask_pickups.tres" id="3_21j5i"]
 [ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="4_u47tj"]
 [ext_resource type="Script" uid="uid://cgwgut0icsm7o" path="res://Level/camera_limiter.gd" id="5_5jbay"]
@@ -26,6 +26,9 @@ b = Vector2(0, 360)
 a = Vector2(-1, 360)
 b = Vector2(1722, 362)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u47tj"]
+size = Vector2(107.75348, 246.74908)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_u2fth"]
 a = Vector2(1722, 0)
 b = Vector2(1722, 362)
@@ -38,7 +41,7 @@ y_sort_enabled = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
 z_index = -1
-texture = ExtResource("1_21j5i")
+texture = ExtResource("1_rflcs")
 offset = Vector2(320, 180)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1294591445]
@@ -50,7 +53,7 @@ shape = SubResource("RectangleShape2D_8l1t5")
 [node name="Background2" type="Sprite2D" parent="." unique_id=313974032]
 z_index = -1
 position = Vector2(860, 0)
-texture = ExtResource("2_u47tj")
+texture = ExtResource("2_21j5i")
 offset = Vector2(320, 180)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background2" unique_id=1755487223]
@@ -66,6 +69,12 @@ shape = SubResource("SegmentShape2D_1y7e4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ExtraLimits" unique_id=158876657]
 shape = SubResource("SegmentShape2D_0wwph")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ExtraLimits" unique_id=650772342]
+position = Vector2(737.6427, -10.736372)
+rotation = 1.168148
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_u47tj")
 
 [node name="LevelBlocker" type="CollisionShape2D" parent="ExtraLimits" unique_id=1465297420]
 shape = SubResource("SegmentShape2D_u2fth")
