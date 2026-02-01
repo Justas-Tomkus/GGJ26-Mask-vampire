@@ -15,17 +15,24 @@ extends CharacterBody2D
 
 var motion = Vector2.ZERO
 var active_mtype :DataTypes.MaskTypes
+var is_alive = true
 
 func _ready() -> void:
 	Hub.mask_equip.connect(on_mask_changed)
 	Hub.enter_request.connect(on_enter_requested)
+	Hub.mark_dead.connect(on_player_dead)
 	
 	# Note(Justas): dynamic set doesn't seem to work, using manually expanded children
 	#var cam_follow : RemoteTransform2D = get_node(rtrans)
 	#cam_follow.remote_path = cam_node
 
+func on_player_dead() -> void:
+	is_alive = false
+
 func _physics_process(delta: float) -> void:
-	
+	if not is_alive:
+		return
+		
 	var move_vecn :Vector2 = Input.get_vector("MoveLeft", "MoveRight", "MoveDown", "MoveUp").normalized()
 		
 	apply_movement_friction(move_vecn, delta)

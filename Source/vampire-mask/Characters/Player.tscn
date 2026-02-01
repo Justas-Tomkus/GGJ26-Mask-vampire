@@ -20,7 +20,6 @@ shape = SubResource("CapsuleShape2D_gijnf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1811973699]
 sprite_frames = ExtResource("2_oo13o")
-animation = &"move_side_garlic"
 metadata/_edit_lock_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=263472957]

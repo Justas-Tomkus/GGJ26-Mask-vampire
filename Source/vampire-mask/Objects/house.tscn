@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b7xkqdlgk8bdc"]
 
 [ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="1_7txk5"]
+[ext_resource type="Script" uid="uid://ch1xue5wke3e0" path="res://Objects/house.gd" id="2_4wadm"]
 [ext_resource type="Texture2D" uid="uid://dfeulcad3hldn" path="res://Objects/namelis-sienos.png" id="2_opt6f"]
 [ext_resource type="PackedScene" uid="uid://dfmdf03qkxhy4" path="res://Objects/interact_area.tscn" id="3_4wadm"]
 [ext_resource type="Script" uid="uid://bso6mloajbn5r" path="res://Level/interaction_target.gd" id="4_vpr5s"]
@@ -48,6 +49,7 @@ animations = [{
 }]
 
 [node name="House" unique_id=835961824 instance=ExtResource("1_7txk5")]
+script = ExtResource("2_4wadm")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=647921261]
 shape = SubResource("SegmentShape2D_7txk5")
@@ -65,40 +67,73 @@ shape = SubResource("SegmentShape2D_vpr5s")
 sprite_frames = SubResource("SpriteFrames_jlhx0")
 animation = &"default"
 
-[node name="InteractArea" parent="." index="5" unique_id=528617561 instance=ExtResource("3_4wadm")]
+[node name="InteractAreaEnter1" parent="." index="5" unique_id=528617561 instance=ExtResource("3_4wadm")]
 position = Vector2(-120, 48)
 req_type = 2
 target_path = NodePath("ITargetExitPoint")
 
-[node name="CollisionShape2D" parent="InteractArea" index="0" unique_id=741066762]
+[node name="CollisionShape2D" parent="InteractAreaEnter1" index="0" unique_id=741066762]
 position = Vector2(5, 3)
 shape = SubResource("RectangleShape2D_0fpva")
 
-[node name="ITargetExitPoint" type="Node2D" parent="InteractArea" index="2" unique_id=1299157041]
+[node name="ITargetExitPoint" type="Node2D" parent="InteractAreaEnter1" index="2" unique_id=1299157041]
 position = Vector2(41, 3)
 script = ExtResource("4_vpr5s")
 itype = 2
 enter_in = true
 hide_on_enter = NodePath("../../AnimatedSprite2D")
 
-[node name="InteractArea2" parent="." index="6" unique_id=954995032 instance=ExtResource("3_4wadm")]
+[node name="InteractAreaExit1" parent="." index="6" unique_id=954995032 instance=ExtResource("3_4wadm")]
 position = Vector2(-99, 47)
 req_type = 2
 target_path = NodePath("ITargetExitPoint")
 
-[node name="CollisionShape2D" parent="InteractArea2" index="0" unique_id=741066762]
+[node name="CollisionShape2D" parent="InteractAreaExit1" index="0" unique_id=741066762]
 position = Vector2(-5, 4)
 shape = SubResource("RectangleShape2D_0fpva")
 
-[node name="ITargetExitPoint" type="Node2D" parent="InteractArea2" index="2" unique_id=1247588023]
+[node name="ITargetExitPoint" type="Node2D" parent="InteractAreaExit1" index="2" unique_id=1247588023]
 position = Vector2(-36, 4)
 script = ExtResource("4_vpr5s")
 itype = 2
 hide_on_enter = NodePath("../../AnimatedSprite2D")
 
-[node name="RoofAnim" type="AnimatedSprite2D" parent="." index="7" unique_id=1692039298]
+[node name="InteractAreaEnter2" parent="." index="7" unique_id=1898237435 instance=ExtResource("3_4wadm")]
+position = Vector2(110, 48)
+req_type = 2
+target_path = NodePath("ITargetExitPoint")
+
+[node name="CollisionShape2D" parent="InteractAreaEnter2" index="0" unique_id=741066762]
+position = Vector2(5, 3)
+shape = SubResource("RectangleShape2D_0fpva")
+
+[node name="ITargetExitPoint" type="Node2D" parent="InteractAreaEnter2" index="2" unique_id=275403173]
+position = Vector2(-37, 2)
+script = ExtResource("4_vpr5s")
+itype = 2
+enter_in = true
+hide_on_enter = NodePath("../../AnimatedSprite2D")
+
+[node name="InteractAreaExit2" parent="." index="8" unique_id=712175199 instance=ExtResource("3_4wadm")]
+position = Vector2(107, 48)
+req_type = 2
+target_path = NodePath("ITargetExitPoint")
+
+[node name="CollisionShape2D" parent="InteractAreaExit2" index="0" unique_id=741066762]
+position = Vector2(-5, 4)
+shape = SubResource("RectangleShape2D_0fpva")
+
+[node name="ITargetExitPoint" type="Node2D" parent="InteractAreaExit2" index="2" unique_id=329424035]
+position = Vector2(31, 0)
+script = ExtResource("4_vpr5s")
+itype = 2
+hide_on_enter = NodePath("../../AnimatedSprite2D")
+
+[node name="RoofAnim" type="AnimatedSprite2D" parent="." index="9" unique_id=1692039298]
 visible = false
 sprite_frames = SubResource("SpriteFrames_4wadm")
 
-[editable path="InteractArea"]
-[editable path="InteractArea2"]
+[editable path="InteractAreaEnter1"]
+[editable path="InteractAreaExit1"]
+[editable path="InteractAreaEnter2"]
+[editable path="InteractAreaExit2"]
