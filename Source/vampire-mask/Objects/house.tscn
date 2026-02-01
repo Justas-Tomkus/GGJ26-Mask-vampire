@@ -114,7 +114,7 @@ position = Vector2(-5, 4)
 shape = SubResource("RectangleShape2D_0fpva")
 
 [node name="ITargetExitPoint" type="Node2D" parent="InteractAreaExit2" index="2" unique_id=329424035]
-position = Vector2(31, 0)
+position = Vector2(19, 0)
 script = ExtResource("4_vpr5s")
 itype = 2
 hide_on_enter = NodePath("../../AnimatedSprite2D")
