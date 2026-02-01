@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://dew4qdxicv2kd"]
 
-[ext_resource type="Texture2D" uid="uid://c2rlwxpn22mxi" path="res://Level/1-lygis-v2.png" id="1_4qlaq"]
+[ext_resource type="Texture2D" uid="uid://bnwwxnwsftve7" path="res://Level/1-lygis-v3.png" id="1_1y7e4"]
 [ext_resource type="PackedScene" uid="uid://mevd0ted8lcr" path="res://Characters/Player.tscn" id="1_rtpfe"]
-[ext_resource type="PackedScene" uid="uid://duxmv4m0v3g6v" path="res://Objects/base_object.tscn" id="3_2rqdr"]
-[ext_resource type="SpriteFrames" uid="uid://01s3vt5ve3ko" path="res://Characters/placeholder_player_anim.tres" id="4_4let5"]
 [ext_resource type="PackedScene" uid="uid://d0dx7rgnav17a" path="res://Objects/medis-2.tscn" id="5_1tqlg"]
 [ext_resource type="Script" uid="uid://cgwgut0icsm7o" path="res://Level/camera_limiter.gd" id="5_1y7e4"]
 [ext_resource type="PackedScene" uid="uid://cgbf3ydlqrl6r" path="res://UI/MainUI.tscn" id="5_btx4e"]
@@ -33,7 +31,8 @@ size = Vector2(28, 11)
 y_sort_enabled = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1391801658]
-texture = ExtResource("1_4qlaq")
+z_index = -2
+texture = ExtResource("1_1y7e4")
 offset = Vector2(320, 180)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1294591445]
@@ -83,11 +82,7 @@ metadata/_edit_lock_ = true
 [node name="Geometry" type="Node2D" parent="." unique_id=2084627213]
 y_sort_enabled = true
 
-[node name="BaseObject" parent="Geometry" unique_id=835961824 instance=ExtResource("3_2rqdr")]
-position = Vector2(341, 261)
-sprite_frames = ExtResource("4_4let5")
-
-[node name="BaseObject2" parent="Geometry" unique_id=1945962370 instance=ExtResource("5_1tqlg")]
+[node name="medis-2" parent="Geometry" unique_id=1945962370 instance=ExtResource("5_1tqlg")]
 y_sort_enabled = false
 position = Vector2(518, 199)
 
@@ -99,15 +94,15 @@ position = Vector2(447, 220)
 y_sort_enabled = false
 position = Vector2(584, 175)
 
-[node name="BaseObject3" parent="Geometry" unique_id=637874864 instance=ExtResource("5_1tqlg")]
+[node name="medis-2-1" parent="Geometry" unique_id=637874864 instance=ExtResource("5_1tqlg")]
 y_sort_enabled = false
 position = Vector2(382, 189)
 
-[node name="BaseObject4" parent="Geometry" unique_id=805468346 instance=ExtResource("5_1tqlg")]
+[node name="medis-2-2" parent="Geometry" unique_id=805468346 instance=ExtResource("5_1tqlg")]
 y_sort_enabled = false
 position = Vector2(277, 135)
 
-[node name="BaseObject5" parent="Geometry" unique_id=1410338956 instance=ExtResource("5_1tqlg")]
+[node name="medis-2-3" parent="Geometry" unique_id=1410338956 instance=ExtResource("5_1tqlg")]
 y_sort_enabled = false
 position = Vector2(200, 159)
 
