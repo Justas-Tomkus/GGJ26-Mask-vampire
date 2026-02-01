@@ -7,20 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://dbhydt386m3c0" path="res://UI/mask_ph1.png" id="5_opt6f"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7txk5"]
-a = Vector2(-110, -72)
-b = Vector2(-109, 72)
+a = Vector2(-110, -69)
+b = Vector2(-109, 69)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_opt6f"]
-a = Vector2(108, 72)
-b = Vector2(-110, 72)
+a = Vector2(106, 72)
+b = Vector2(-108, 72)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4wadm"]
-a = Vector2(108, -71)
-b = Vector2(108, 72)
+a = Vector2(109, -69)
+b = Vector2(108, 70)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vpr5s"]
-a = Vector2(109, -71)
-b = Vector2(-111, -71)
+a = Vector2(107, -71)
+b = Vector2(-108, -71)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jlhx0"]
 animations = [{

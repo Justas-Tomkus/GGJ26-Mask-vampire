@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://l4g6g3ti7t40"]
 
-[ext_resource type="Texture2D" uid="uid://dbhydt386m3c0" path="res://UI/mask_ph1.png" id="1_vdjni"]
+[ext_resource type="Texture2D" uid="uid://4ebgeuuiabwn" path="res://UI/didelis-cesnakas.png" id="1_fjatb"]
 [ext_resource type="Script" uid="uid://b1qaxhayv8acj" path="res://UI/mask_ui.gd" id="2_b72b8"]
 [ext_resource type="Texture2D" uid="uid://chlfckeq0vf7e" path="res://UI/kauke-saule.png" id="3_fpqr1"]
 [ext_resource type="Texture2D" uid="uid://ve3vniext8mk" path="res://UI/kauke-zmones.png" id="4_v74gk"]
 [ext_resource type="Texture2D" uid="uid://dteelo4mxl4r8" path="res://UI/duju-kauke.png" id="5_v74gk"]
+[ext_resource type="Texture2D" uid="uid://b6aggndf6kays" path="res://UI/vamp-head.png" id="6_jwo0q"]
 
 [node name="Mask" type="Button" unique_id=343102505]
-icon = ExtResource("1_vdjni")
+custom_minimum_size = Vector2(38, 38)
+icon = ExtResource("1_fjatb")
 script = ExtResource("2_b72b8")
 data_map = Dictionary[int, Dictionary]({
 1: {
@@ -20,6 +22,6 @@ data_map = Dictionary[int, Dictionary]({
 "image": ExtResource("5_v74gk")
 },
 4: {
-"image": ExtResource("1_vdjni")
+"image": ExtResource("6_jwo0q")
 }
 })
