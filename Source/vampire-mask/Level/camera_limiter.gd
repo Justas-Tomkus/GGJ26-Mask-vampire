@@ -4,6 +4,12 @@ extends Camera2D
 
 func _ready() -> void:
 	ready_limits()
+	Hub.unlock_area.connect(on_limit_expand)
+	
+func on_limit_expand(node :Sprite2D) -> void:
+	backgrounds.append(node)
+	# TODO(Justas) : animate expansion
+	ready_limits()
 
 func ready_limits() -> void:
 	var min :Vector2 = Vector2(100000, 10000)

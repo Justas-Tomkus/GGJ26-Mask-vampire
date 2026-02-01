@@ -18,3 +18,5 @@ signal out_shadow
 signal take_damage
 signal mark_dead
 signal try_retry
+
+signal unlock_area
