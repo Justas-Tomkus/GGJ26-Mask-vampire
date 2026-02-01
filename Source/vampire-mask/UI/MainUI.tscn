@@ -5,6 +5,8 @@
 [ext_resource type="StyleBox" uid="uid://o7wb22507tju" path="res://UI/UIPanelStyle.tres" id="4_8cqdv"]
 [ext_resource type="Script" uid="uid://c4jgs87d57daa" path="res://UI/defeat_start.gd" id="4_44ib0"]
 [ext_resource type="Script" uid="uid://bl871h7g82fur" path="res://UI/interaction_hint.gd" id="4_fdbdo"]
+[ext_resource type="Texture2D" uid="uid://6k0nx35108tq" path="res://UI/restart.png" id="6_475mu"]
+[ext_resource type="Texture2D" uid="uid://1ylo8xv4e10u" path="res://UI/quit.png" id="7_uqb74"]
 
 [node name="MainUI" type="Control" unique_id=567690652]
 layout_mode = 3
@@ -87,10 +89,14 @@ theme_override_constants/separation = 40
 
 [node name="RetryButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=157619831]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 16
-text = "Try again"
+icon = ExtResource("6_475mu")
 
 [node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1823862050]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 16
-text = "Quit"
+icon = ExtResource("7_uqb74")

@@ -13,11 +13,11 @@ func _ready() -> void:
 func on_damage_taken(dtype :DataTypes.MaskTypes) -> void:
 	var hintText :String = ""
 	if dtype == DataTypes.MaskTypes.Sun:
-		hintText = "You dead because of sunburns, try not to stay in sun for too long without a proper mask"
+		hintText = "You are dead because of the sunburns, try not to stay in sun for too long without a proper mask"
 	elif dtype == DataTypes.MaskTypes.Human:
 		hintText = "You got recognized by a human, try not stay in sight without a proper disguise"
 	else:
-		hintText = "You mananged to be dead-dead, congrats!"
+		hintText = "You mananged to be dead-dead, congratulations!"
 	label.text = hintText
 	visible = true
 	Hub.mark_dead.emit()
