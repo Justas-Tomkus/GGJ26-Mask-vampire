@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://dfeulcad3hldn" path="res://Objects/namelis-sienos.png" id="2_opt6f"]
 [ext_resource type="PackedScene" uid="uid://dfmdf03qkxhy4" path="res://Objects/interact_area.tscn" id="3_4wadm"]
 [ext_resource type="Script" uid="uid://bso6mloajbn5r" path="res://Level/interaction_target.gd" id="4_vpr5s"]
-[ext_resource type="Texture2D" uid="uid://dbhydt386m3c0" path="res://UI/mask_ph1.png" id="5_opt6f"]
+[ext_resource type="Script" uid="uid://cwlyc21aq3va0" path="res://Objects/shadow.gd" id="6_vpr5s"]
+[ext_resource type="Texture2D" uid="uid://cu8orkuk3yx2y" path="res://Objects/shadow_side.png" id="7_37ydx"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7txk5"]
-a = Vector2(-110, -69)
+a = Vector2(-108, -66)
 b = Vector2(-109, 69)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_opt6f"]
@@ -19,9 +20,8 @@ b = Vector2(-108, 72)
 a = Vector2(109, -69)
 b = Vector2(108, 70)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_vpr5s"]
-a = Vector2(107, -71)
-b = Vector2(-108, -71)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpr5s"]
+size = Vector2(216, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jlhx0"]
 animations = [{
@@ -37,17 +37,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fpva"]
 size = Vector2(8, 23)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4wadm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_opt6f")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="House" unique_id=835961824 instance=ExtResource("1_7txk5")]
 script = ExtResource("2_4wadm")
 
@@ -61,7 +50,8 @@ shape = SubResource("SegmentShape2D_opt6f")
 shape = SubResource("SegmentShape2D_4wadm")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="." index="3" unique_id=2147332021]
-shape = SubResource("SegmentShape2D_vpr5s")
+position = Vector2(-1, -47)
+shape = SubResource("RectangleShape2D_vpr5s")
 
 [node name="AnimatedSprite2D" parent="." index="4" unique_id=910669732]
 sprite_frames = SubResource("SpriteFrames_jlhx0")
@@ -129,9 +119,32 @@ script = ExtResource("4_vpr5s")
 itype = 2
 hide_on_enter = NodePath("../../AnimatedSprite2D")
 
-[node name="RoofAnim" type="AnimatedSprite2D" parent="." index="9" unique_id=1692039298]
-visible = false
-sprite_frames = SubResource("SpriteFrames_4wadm")
+[node name="Area2D" type="Area2D" parent="." index="9" unique_id=1141704563]
+position = Vector2(-125, 46)
+collision_mask = 8
+script = ExtResource("6_vpr5s")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" index="0" unique_id=165519340]
+rotation = -1.5707964
+polygon = PackedVector2Array(22, 17, -25.000002, 18, -24.000002, 8, -3.999998, -10, 12, -4, 17, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" index="1" unique_id=357695487]
+z_index = -1
+texture = ExtResource("7_37ydx")
+
+[node name="Area2D2" type="Area2D" parent="." index="10" unique_id=950658999]
+position = Vector2(124, 48)
+rotation = -3.1415927
+collision_mask = 8
+script = ExtResource("6_vpr5s")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D2" index="0" unique_id=290519001]
+rotation = -1.5707964
+polygon = PackedVector2Array(22, 17, -25.000002, 18, -24.000002, 8, -3.999998, -10, 12, -4, 17, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" index="1" unique_id=360558610]
+z_index = -1
+texture = ExtResource("7_37ydx")
 
 [editable path="InteractAreaEnter1"]
 [editable path="InteractAreaExit1"]
